@@ -5,7 +5,7 @@ class ClosedInterval
 
   def initialize(lower_endpoint, upper_endpoint)
     if lower_endpoint > upper_endpoint
-      raise StandardError("下端点は上端点より小さい必要があります")
+      raise StandardError.new("下端点は上端点より小さい必要があります")
     end
     @lower_endpoint = lower_endpoint
     @upper_endpoint = upper_endpoint
@@ -17,7 +17,8 @@ class ClosedInterval
   end
 
   def include_closed_interval?(closed_interval)
-    true
+    return true if @lower_endpoint <= closed_interval.lower_endpoint and closed_interval.upper_endpoint <= @upper_endpoint
+    false
   end
 
   def to_s

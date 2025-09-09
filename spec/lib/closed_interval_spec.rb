@@ -1,10 +1,20 @@
 RSpec.describe ClosedInterval do
-  describe "閉区間に含むか判定する関数" do
+  describe "コンストラクタ関数" do
+    context "異常系：上端点が下端点より大きい閉区間の場合" do
+      it "[7, 3]の時、例外を発生させる" do
+        expect do
+          closed_interval = ClosedInterval(7, 3)
+        end.to raise_error(StandardError)
+      end
+    end
+  end
+
+  describe "整数を閉区間に含むか判定する関数" do
     let(:lower_endpoint) { nil }
     let(:upper_endpoint) { nil }
     let(:closed_interval) { ClosedInterval.new(lower_endpoint, upper_endpoint) }
 
-    context "正常系：閉区間に値を含む" do
+    context "閉区間に値を含む" do
       context "[3, 7]の区間の時に" do
         let(:lower_endpoint) { 3 }
         let(:upper_endpoint) { 7 }
@@ -40,7 +50,7 @@ RSpec.describe ClosedInterval do
       # end
     end
 
-    context "異常系：閉区間に値を含まない" do
+    context "閉区間に値を含まない" do
       context "[3, 7]の区間の時に" do
         let(:lower_endpoint) { 3 }
         let(:upper_endpoint) { 7 }
@@ -85,16 +95,6 @@ RSpec.describe ClosedInterval do
     end
   end
 
-  describe "コンストラクタ関数" do
-    context "上端点が下端点より大きい閉区間の場合" do
-      it "[7, 3]の時、例外を発生させる" do
-        expect do
-          closed_interval = ClosedInterval(3, 7)
-        end.to raise_error(StandardError)
-      end
-    end
-  end
-
   describe "別の閉区間と等価かどうか判定する関数" do
     context "等価の場合" do
       it "[3, 7]と[3, 7]の場合にTrueを返すこと" do
@@ -115,9 +115,9 @@ RSpec.describe ClosedInterval do
 
   describe "別の閉区間を完全に含むかどうか判定する関数" do
     context "完全に含む場合" do
-      it "[3, 7]と[2, 4]の時、Trueを返すこと" do
+      it "[3, 7]と[4, 6]の時、Trueを返すこと" do
         closed_interval_1 = ClosedInterval.new(3, 7)
-        closed_interval_2 = ClosedInterval.new(2, 4)
+        closed_interval_2 = ClosedInterval.new(4, 6)
         expect(closed_interval_1.include_closed_interval?(closed_interval_2)).to eq true
       end
 
@@ -132,6 +132,30 @@ RSpec.describe ClosedInterval do
       it "[3, 7]と[-5, 2]の時、Falseを返すこと" do
         closed_interval_1 = ClosedInterval.new(3, 7)
         closed_interval_2 = ClosedInterval.new(-5, 2)
+        expect(closed_interval_1.include_closed_interval?(closed_interval_2)).to eq false
+      end
+
+      it "[3, 7]と[-2, 5]の時、Falseを返すこと" do
+        closed_interval_1 = ClosedInterval.new(3, 7)
+        closed_interval_2 = ClosedInterval.new(-2, 5)
+        expect(closed_interval_1.include_closed_interval?(closed_interval_2)).to eq false
+      end
+
+      it "[3, 7]と[5, 9]の時、Falseを返すこと" do
+        closed_interval_1 = ClosedInterval.new(3, 7)
+        closed_interval_2 = ClosedInterval.new(5, 9)
+        expect(closed_interval_1.include_closed_interval?(closed_interval_2)).to eq false
+      end
+
+      it "[3, 7]と[9, 12]の時、Falseを返すこと" do
+        closed_interval_1 = ClosedInterval.new(3, 7)
+        closed_interval_2 = ClosedInterval.new(9, 12)
+        expect(closed_interval_1.include_closed_interval?(closed_interval_2)).to eq false
+      end
+
+      it "[3, 7]と[-1, 12]の時、Falseを返すこと" do
+        closed_interval_1 = ClosedInterval.new(3, 7)
+        closed_interval_2 = ClosedInterval.new(-1, 12)
         expect(closed_interval_1.include_closed_interval?(closed_interval_2)).to eq false
       end
     end
