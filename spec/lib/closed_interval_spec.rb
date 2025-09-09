@@ -121,6 +121,12 @@ RSpec.describe ClosedInterval do
         expect(closed_interval_1.include_closed_interval?(closed_interval_2)).to eq true
       end
 
+      it "[3, 7]と[3, 7]の時、Trueを返すこと" do
+        closed_interval_1 = ClosedInterval.new(3, 7)
+        closed_interval_2 = ClosedInterval.new(3, 7)
+        expect(closed_interval_1.include_closed_interval?(closed_interval_2)).to eq true
+      end
+
     end
 
   end
