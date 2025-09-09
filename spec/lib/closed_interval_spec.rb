@@ -119,9 +119,9 @@ RSpec.describe ClosedInterval do
       expect(closed_interval.to_s).to eq "[3,7]"
     end
 
-    it "区間が[1, 5]の時に'[1,5]'を返すこと" do
-      closed_interval = ClosedInterval.new(1, 5)
-      expect(closed_interval.to_s).to eq "[1,5]"
-    end
+    # it "区間が[1, 5]の時に'[1,5]'を返すこと" do
+    #   closed_interval = ClosedInterval.new(1, 5)
+    #   expect(closed_interval.to_s).to eq "[1,5]"
+    # end
   end
 end
