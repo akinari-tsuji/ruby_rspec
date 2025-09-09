@@ -1,4 +1,14 @@
 RSpec.describe ClosedInterval do
+  describe "上端点と下端点の大小関係について" do
+    context "上端点が下端点より大きい閉区間" do
+      it "[7, 3]の時、例外を発生させる" do
+        expect do
+          closed_interval = ClosedInterval(3, 7)
+        end.to raise_error(StandardError)
+      end
+    end
+  end
+
   describe "閉区間に含むか判定する関数" do
     let(:lower_endpoint) { nil }
     let(:upper_endpoint) { nil }
