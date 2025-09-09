@@ -17,5 +17,14 @@ RSpec.describe ClosedInterval do
         end
       end
     end
+
+    context "異常系" do
+      context "[3, 7]の区間の時に" do
+        it "8を渡したらFalseを返すこと" do
+          closed_interval = ClosedInterval.new()
+          expect(closed_interval.include?(8)).to eq false
+        end
+      end
+    end
   end
 end
