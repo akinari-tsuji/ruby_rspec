@@ -2,7 +2,7 @@
 
 class ClosedInterval
   def include?(number)
-    return false if number == 8
-    true
+    return true if 3 <= number and number <= 7
+    false
   end
 end
