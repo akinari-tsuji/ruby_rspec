@@ -3,12 +3,18 @@ RSpec.describe ClosedInterval do
     context "正常系" do
       let(:closed_interval) { ClosedInterval.new() }
 
-      it "[3, 7]の区間の時に、5を渡したらTrueを返すこと" do
-        expect(closed_interval.include?(5)).to eq true
-      end
+      context "[3, 7]の区間の時に" do
+        it "5を渡したらTrueを返すこと" do
+          expect(closed_interval.include?(5)).to eq true
+        end
 
-      it "[3, 7]の区間の時に、7を渡したらTrueを返すこと" do
-        expect(closed_interval.include?(7)).to eq true
+        it "7を渡したらTrueを返すこと" do
+          expect(closed_interval.include?(7)).to eq true
+        end
+
+        it "3を渡したらTrueを返すこと" do
+          expect(closed_interval.include?(3)).to eq true
+        end
       end
     end
   end
