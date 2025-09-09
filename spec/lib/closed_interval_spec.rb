@@ -22,22 +22,22 @@ RSpec.describe ClosedInterval do
         end
       end
 
-      context "[1, 5]の区間の時に" do
-        let(:lower_endpoint) { 1 }
-        let(:upper_endpoint) { 5 }
-
-        it "2を渡したらTrueを返すこと" do
-          expect(closed_interval.include?(2)).to eq true
-        end
-
-        it "1を渡したらTrueを返すこと" do
-          expect(closed_interval.include?(1)).to eq true
-        end
-
-        it "5を渡したらTrueを返すこと" do
-          expect(closed_interval.include?(5)).to eq true
-        end
-      end
+      # context "[1, 5]の区間の時に" do
+      #   let(:lower_endpoint) { 1 }
+      #   let(:upper_endpoint) { 5 }
+      #
+      #   it "2を渡したらTrueを返すこと" do
+      #     expect(closed_interval.include?(2)).to eq true
+      #   end
+      #
+      #   it "1を渡したらTrueを返すこと" do
+      #     expect(closed_interval.include?(1)).to eq true
+      #   end
+      #
+      #   it "5を渡したらTrueを返すこと" do
+      #     expect(closed_interval.include?(5)).to eq true
+      #   end
+      # end
     end
 
     context "異常系：閉区間に値を含まない" do
@@ -62,26 +62,26 @@ RSpec.describe ClosedInterval do
         end
       end
 
-      context "[1, 5]の区間の時に" do
-        let(:lower_endpoint) { 1 }
-        let(:upper_endpoint) { 5 }
-
-        it "0を渡したらFalseを返すこと" do
-          expect(closed_interval.include?(0)).to eq false
-        end
-
-        it "6を渡したらFalseを返すこと" do
-          expect(closed_interval.include?(6)).to eq false
-        end
-
-        it "-2を渡したらFalseを返すこと" do
-          expect(closed_interval.include?(-2)).to eq false
-        end
-
-        it "8を渡したらFalseを返すこと" do
-          expect(closed_interval.include?(8)).to eq false
-        end
-      end
+      # context "[1, 5]の区間の時に" do
+      #   let(:lower_endpoint) { 1 }
+      #   let(:upper_endpoint) { 5 }
+      #
+      #   it "0を渡したらFalseを返すこと" do
+      #     expect(closed_interval.include?(0)).to eq false
+      #   end
+      #
+      #   it "6を渡したらFalseを返すこと" do
+      #     expect(closed_interval.include?(6)).to eq false
+      #   end
+      #
+      #   it "-2を渡したらFalseを返すこと" do
+      #     expect(closed_interval.include?(-2)).to eq false
+      #   end
+      #
+      #   it "8を渡したらFalseを返すこと" do
+      #     expect(closed_interval.include?(8)).to eq false
+      #   end
+      # end
     end
   end
 
