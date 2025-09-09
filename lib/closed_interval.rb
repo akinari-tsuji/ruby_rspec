@@ -12,4 +12,8 @@ class ClosedInterval
     return true if @lower_endpoint <= number and number <= @upper_endpoint
     false
   end
+
+  def to_s
+    "[#{@lower_endpoint},#{@upper_endpoint}]"
+  end
 end
