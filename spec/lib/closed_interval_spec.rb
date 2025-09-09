@@ -16,6 +16,12 @@ RSpec.describe ClosedInterval do
           expect(closed_interval.include?(3)).to eq true
         end
       end
+
+      context "[1, 5]の区間の時に" do
+        it "2を渡したらTrueを返すこと" do
+          expect(closed_interval.include?(2)).to eq true
+        end
+      end
     end
 
     context "異常系" do
@@ -26,6 +32,14 @@ RSpec.describe ClosedInterval do
 
         it "2を渡したらFalseを返すこと" do
           expect(closed_interval.include?(2)).to eq false
+        end
+
+        it "10を渡したらFalseを返すこと" do
+          expect(closed_interval.include?(10)).to eq false
+        end
+
+        it "1を渡したらFalseを返すこと" do
+          expect(closed_interval.include?(1)).to eq false
         end
       end
     end
