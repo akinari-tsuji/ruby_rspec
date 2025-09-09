@@ -23,6 +23,10 @@ RSpec.describe ClosedInterval do
         it "8を渡したらFalseを返すこと" do
           expect(closed_interval.include?(8)).to eq false
         end
+
+        it "2を渡したらFalseを返すこと" do
+          expect(closed_interval.include?(2)).to eq false
+        end
       end
     end
   end
