@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ClosedInterval
-  attr :lower_endpoint, :upper_endpoint
+  attr_reader :lower_endpoint, :upper_endpoint
 
   def initialize(lower_endpoint, upper_endpoint)
     if lower_endpoint > upper_endpoint
@@ -18,5 +18,12 @@ class ClosedInterval
 
   def to_s
     "[#{@lower_endpoint},#{@upper_endpoint}]"
+  end
+
+  def equal?(other_closed_interval)
+    return false if @lower_endpoint != other_closed_interval.lower_endpoint
+    return false if @upper_endpoint != other_closed_interval.upper_endpoint
+
+    true
   end
 end
