@@ -9,7 +9,7 @@ class ClosedInterval
   end
 
   def include?(number)
-    return true if lower_endpoint <= number and number <= upper_endpoint
+    return true if @lower_endpoint <= number and number <= @upper_endpoint
     false
   end
 end
