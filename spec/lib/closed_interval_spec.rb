@@ -104,6 +104,13 @@ RSpec.describe ClosedInterval do
       end
     end
 
+    context "等価ではない場合" do
+      it "[3, 7]と[1, 5]の時にFalseを返すこと" do
+        closed_interval_1 = ClosedInterval.new(3, 7)
+        closed_interval_2 = ClosedInterval.new(1, 2)
+        expect(closed_interval_1.equal?(closed_interval_2)).to eq false
+      end
+    end
   end
 
   describe "整数閉区間の文字列表記を返す関数" do
