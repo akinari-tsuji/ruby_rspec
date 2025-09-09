@@ -113,6 +113,18 @@ RSpec.describe ClosedInterval do
     end
   end
 
+  describe "別の閉区間を完全に含むかどうか判定する関数" do
+    context "完全に含む場合" do
+      it "[3, 7]と[2, 4]の時、Trueを返すこと" do
+        closed_interval_1 = ClosedInterval.new(3, 7)
+        closed_interval_2 = ClosedInterval.new(2, 4)
+        expect(closed_interval_1.include_closed_interval?(closed_interval_2)).to eq true
+      end
+
+    end
+
+  end
+
   describe "整数閉区間の文字列表記を返す関数" do
     it "区間が[3, 7]の時に'[3,7]'を返すこと" do
       closed_interval = ClosedInterval.new(3, 7)
