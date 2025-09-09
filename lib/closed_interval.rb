@@ -16,6 +16,10 @@ class ClosedInterval
     false
   end
 
+  def include_closed_interval?(closed_interval)
+    true
+  end
+
   def to_s
     "[#{@lower_endpoint},#{@upper_endpoint}]"
   end
