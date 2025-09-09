@@ -1,14 +1,4 @@
 RSpec.describe ClosedInterval do
-  describe "上端点と下端点の大小関係について" do
-    context "上端点が下端点より大きい閉区間" do
-      it "[7, 3]の時、例外を発生させる" do
-        expect do
-          closed_interval = ClosedInterval(3, 7)
-        end.to raise_error(StandardError)
-      end
-    end
-  end
-
   describe "閉区間に含むか判定する関数" do
     let(:lower_endpoint) { nil }
     let(:upper_endpoint) { nil }
@@ -93,6 +83,27 @@ RSpec.describe ClosedInterval do
       #   end
       # end
     end
+  end
+
+  describe "上端点と下端点の大小関係について" do
+    context "上端点が下端点より大きい閉区間" do
+      it "[7, 3]の時、例外を発生させる" do
+        expect do
+          closed_interval = ClosedInterval(3, 7)
+        end.to raise_error(StandardError)
+      end
+    end
+  end
+
+  describe "別の閉区間と等価かどうか判定する関数" do
+    context "等価の場合" do
+      it "[3, 7]と[3, 7]の場合にTrueを返すこと" do
+        closed_interval_1 = ClosedInterval.new(3, 7)
+        closed_interval_2 = ClosedInterval.new(3, 7)
+        expect(closed_interval_1.equal?(closed_interval_2)).to eq true
+      end
+    end
+
   end
 
   describe "整数閉区間の文字列表記を返す関数" do
