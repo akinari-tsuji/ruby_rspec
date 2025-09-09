@@ -1,8 +1,9 @@
 RSpec.describe ClosedInterval do
-  let(:lower_endpoint) { nil }
-  let(:upper_endpoint) { nil }
-  let(:closed_interval) { ClosedInterval.new(lower_endpoint, upper_endpoint) }
   describe "閉区間に含むか判定する関数" do
+    let(:lower_endpoint) { nil }
+    let(:upper_endpoint) { nil }
+    let(:closed_interval) { ClosedInterval.new(lower_endpoint, upper_endpoint) }
+
     context "正常系：閉区間に値を含む" do
       context "[3, 7]の区間の時に" do
         let(:lower_endpoint) { 3 }
@@ -85,11 +86,14 @@ RSpec.describe ClosedInterval do
   end
 
   describe "整数閉区間の文字列表記を返す関数" do
-    it "区間が[3, 7]の時に'[3,7]を返すこと" do
-      let(:lower_endpoint) { 3 }
-      let(:upper_endpoint) { 7 }
-
+    it "区間が[3, 7]の時に'[3,7]'を返すこと" do
+      closed_interval = ClosedInterval.new(3, 7)
       expect(closed_interval.to_s).to eq "[3,7]"
+    end
+
+    it "区間が[1, 5]の時に'[1,5]'を返すこと" do
+      closed_interval = ClosedInterval.new(1, 5)
+      expect(closed_interval.to_s).to eq "[1,5]"
     end
   end
 end
