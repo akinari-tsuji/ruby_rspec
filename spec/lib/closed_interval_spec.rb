@@ -85,8 +85,8 @@ RSpec.describe ClosedInterval do
     end
   end
 
-  describe "上端点と下端点の大小関係について" do
-    context "上端点が下端点より大きい閉区間" do
+  describe "コンストラクタ関数" do
+    context "上端点が下端点より大きい閉区間の場合" do
       it "[7, 3]の時、例外を発生させる" do
         expect do
           closed_interval = ClosedInterval(3, 7)
